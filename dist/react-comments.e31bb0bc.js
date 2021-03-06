@@ -29772,7 +29772,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/components/Post.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/components/Voter.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29798,6 +29798,98 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+var Voter = function Voter() {
+  var _useState = (0, _react.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      voteCount = _useState2[0],
+      changeVoteCount = _useState2[1];
+
+  var voteUp = function voteUp() {
+    changeVoteCount(voteCount + 1);
+  };
+
+  var voteDown = function voteDown() {
+    changeVoteCount(voteCount - 1);
+  };
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn btn-link",
+    onClick: function onClick(e) {
+      return voteUp();
+    }
+  }, "+1"), voteCount, /*#__PURE__*/_react.default.createElement("button", {
+    className: "btn btn-link",
+    onClick: function onClick(e) {
+      return voteDown();
+    }
+  }, "-1"));
+};
+
+var _default = Voter;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"src/components/Reply.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var Reply = function Reply(_ref) {
+  var post = _ref.post,
+      id = _ref.id,
+      reply = _ref.reply;
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null);
+};
+
+var _default = Reply;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"src/components/Post.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Voter = _interopRequireDefault(require("./Voter"));
+
+var _Reply = _interopRequireDefault(require("./Reply.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 var Post = function Post() {
   var _useState = (0, _react.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
@@ -29809,17 +29901,55 @@ var Post = function Post() {
       postInput = _useState4[0],
       changePostInput = _useState4[1];
 
+  var _useState5 = (0, _react.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      posted = _useState6[0],
+      setPosted = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      replyNameInput = _useState8[0],
+      setReplyNameInput = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      replyTextInput = _useState10[0],
+      setReplyTextInput = _useState10[1];
+
+  var _useState11 = (0, _react.useState)([]),
+      _useState12 = _slicedToArray(_useState11, 2),
+      replies = _useState12[0],
+      setReplies = _useState12[1];
+
   var submit = function submit(e) {
     e.preventDefault();
+    var post = {
+      userNameInput: userNameInput,
+      postInput: postInput,
+      votes: 0,
+      replies: replies
+    };
     changeUserNameInput('');
     changePostInput('');
+    var newPosts = [].concat(_toConsumableArray(posted), [post]);
+    setPosted(newPosts);
+  };
+
+  var submitReply = function submitReply(e, post) {
+    e.preventDefault();
+    var reply = [replyNameInput, replyTextInput];
+    setReplyNameInput('');
+    setReplyTextInput('');
+    var newReplies = [].concat(_toConsumableArray(replies), [reply]);
+    post.replies = newReplies;
+    setReplies(newReplies);
   };
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", {
-    class: "shadow p-3 mb-5 bg-white rounded box"
+    className: "shadow p-3 mb-5 bg-white rounded box"
   }, /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: submit
-  }, /*#__PURE__*/_react.default.createElement("center", null, /*#__PURE__*/_react.default.createElement("h1", null, " New Post "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("center", null, /*#__PURE__*/_react.default.createElement("h2", null, " ", /*#__PURE__*/_react.default.createElement("b", null, "\uD83D\uDCAD New Post ")), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/_react.default.createElement("textarea", {
     className: "form-control",
@@ -29845,13 +29975,68 @@ var Post = function Post() {
     rows: "3"
   })), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("button", {
     type: "submit",
-    className: "btn btn-primary"
-  }, "Submit")))));
+    className: "btn btn-primary",
+    disabled: postInput.trim().length === 0 || userNameInput.trim().length === 0
+  }, "Submit")))), posted.map(function (post) {
+    /*#__PURE__*/
+    _react.default.createElement("li", {
+      key: post.id
+    });
+
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "shadow p-3 mb-5 bg-white rounded box"
+    }, /*#__PURE__*/_react.default.createElement("p", {
+      className: "text-primary"
+    }, /*#__PURE__*/_react.default.createElement("b", null, post.userNameInput, " "), " "), /*#__PURE__*/_react.default.createElement("p", null, " ", post.postInput, " "), /*#__PURE__*/_react.default.createElement(_Voter.default, null), post.replies.map(function (reply) {
+      /*#__PURE__*/
+      _react.default.createElement("li", {
+        key: reply.id
+      });
+
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "shadow p-3 mb-5 bg-white rounded box"
+      }, /*#__PURE__*/_react.default.createElement("p", {
+        className: "text-primary"
+      }, /*#__PURE__*/_react.default.createElement("b", null, reply[0], " ")), /*#__PURE__*/_react.default.createElement("p", null, reply[1]), /*#__PURE__*/_react.default.createElement(_Voter.default, null));
+    }), /*#__PURE__*/_react.default.createElement("form", {
+      onSubmit: submit
+    }, /*#__PURE__*/_react.default.createElement("center", null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "form-group"
+    }, /*#__PURE__*/_react.default.createElement("textarea", {
+      className: "form-control",
+      value: replyNameInput,
+      onChange: function onChange(e) {
+        return setReplyNameInput(e.target.value);
+      },
+      type: "text",
+      id: "name",
+      placeholder: "Name...",
+      rows: "1"
+    })), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("div", {
+      className: "form-group"
+    }, /*#__PURE__*/_react.default.createElement("textarea", {
+      className: "form-control",
+      value: replyTextInput,
+      onChange: function onChange(e) {
+        return setReplyTextInput(e.target.value);
+      },
+      type: "text",
+      id: "post",
+      placeholder: "Write a Reply...",
+      rows: "2"
+    })), /*#__PURE__*/_react.default.createElement("br", null)), /*#__PURE__*/_react.default.createElement("button", {
+      className: "btn btn-primary",
+      disabled: replyNameInput.trim().length === 0 || replyTextInput.trim().length === 0,
+      onClick: function onClick(e) {
+        return submitReply(e, post);
+      }
+    }, "Reply")));
+  }));
 };
 
 var _default = Post;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/components/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Voter":"src/components/Voter.js","./Reply.js":"src/components/Reply.js"}],"src/components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29870,19 +30055,9 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var App = function App() {
-  /**
-  const [posts, setPosts] = useState('')
-  changeVote = () => {
-  //... makes a copy of that value
-  const postsCopy = [...posts, newPosts]
-  //access posts through indexing
-  newPosts[0].vote += 1
-  setsPosts(newPosts)
-  }
-  */
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement(_Post.default, null));
+  }, /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("center", null, /*#__PURE__*/_react.default.createElement("h1", null, " ", /*#__PURE__*/_react.default.createElement("b", null, "\uD83E\uDD14 What's on your mind? "))), /*#__PURE__*/_react.default.createElement(_Post.default, null));
 };
 
 var _default = App;
